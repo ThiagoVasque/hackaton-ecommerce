@@ -1,0 +1,71 @@
+
+.cadastro-marcas {
+    padding-bottom: 5rem;
+    height:100vh;
+
+    &__header {
+        padding-top: 1rem;
+        display: flex;
+        flex-direction: column;
+
+        &--control {
+            margin: 1rem auto;
+        }
+
+        &--button {
+            border-radius: 5px;
+            border: 2px solid rgb(111,51,51);
+            background-color: #000000;
+            margin: 0 1rem;
+            padding: 0.5rem 2rem;
+            color: #ffffff91;
+            transition: 0.5s color ease-in;
+            font-size: 1rem;
+
+            &:hover {
+                color: #ffffff;
+                text-decoration: none;
+            }
+        }
+
+        &--title {
+            margin: auto;
+            color: #ffffffff;
+            font-weight:bold;
+            font-size: 2rem;
+            padding: 2rem;
+        }
+    }
+
+    &__container {
+        
+        &__form {
+            display: flex;
+            flex-wrap: wrap;
+
+            & div label {
+                margin-bottom: 1rem;
+                font-size: large;
+                color: #fff;
+            }
+
+            &--button {
+                border-radius: 5px;
+                border: 2px solid rgb(111,51,51);
+                background-color: #000000;
+                margin: 2rem 1rem;
+                padding: 0.5rem 2rem;
+                color: #ffffff91;
+                transition: 0.5s color ease-in;
+                font-size: 1rem;
+    
+                &:hover {
+                    color: #ffffff;
+                    text-decoration: none;
+                }
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,96 @@
+
+.listagem-veiculos {
+    padding-bottom: 5rem;
+
+    &__header {
+        padding-top: 1rem;
+        display: flex;
+        flex-direction: column;
+
+        &--control {
+            margin: 1rem auto;
+        }
+
+        &--button {
+            border-radius: 5px;
+            border: 2px solid rgb(111,51,51);
+            background-color: #000000;
+            margin: 0 1rem;
+            padding: 0.5rem 2rem;
+            color: #ffffff91;
+            transition: 0.5s color ease-in;
+            font-size: 1rem;
+
+            &:hover {
+                color: #ffffff;
+                text-decoration: none;
+            }
+        }
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+
+        &__card {
+            border-radius: 5px;
+            border: 2px solid rgb(111,51,51);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1rem auto;
+            padding: 1rem 0;
+            background-color: #000000;
+            max-width: 344px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+            &--image-container {
+                border: 2px solid rgb(111,51,51);
+                height: 20rem;
+                width: 20rem;
+
+                & a, & a img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            &--title {
+                color: #ffffffff;
+                font-size: 1.5rem;
+                padding: 2rem 0;
+                margin: 0;
+            }
+
+            &--info {
+                color: #ffffff91;
+                display: flex;
+                justify-content: space-around;
+
+                &__item {
+                    padding: 0 1rem;
+                    font-size: 1rem;
+                }
+            }
+
+            &--controls {
+                display: flex;
+
+                &--button {
+                    margin: 1rem 5rem;
+                    color: #ffffff91;
+                    font-size: 1.5rem;
+                    transition: 0.5s color ease-in;
+        
+                    &:hover {
+                        color: #ffffff;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
+}

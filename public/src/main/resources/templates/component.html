@@ -1,0 +1,210 @@
+<head th:fragment="header">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <meta charset="utf-8">
+    <title>Concessionária</title>
+</head>
+
+
+
+<body>
+    <!-- Component navbar -->
+
+    <nav th:fragment="nav-bar" class="navbar navbar-expand-lg navbar-light" id="nav">
+        <div id="logo">
+            <a class="navbar-brand" href="/">
+                <img src="/assets/logo.png" alt="logo">
+            </a>
+        </div>
+
+        <div class="colapse navbar-colapse" id="navbar">
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link h6" href="/sobre">Sobre a empresa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link h6" href="/main/n">Novos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link h6" href="/main/s">Seminovos</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <!-- Component Card de apresentação de veiculos -->
+    <div class="container-veiculos">
+        <div th:fragment="card" class="card col-12 col-md-4 text container" id="card" th:each="v : ${listVeiculos}">
+            <div class="image-container">
+                <img class="card-img-top w-100" th:attr="src=@{/images/}+${v.fotodestaque}+m.jpg, alt=${v.modelo}, title=${v.modelo}">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title" th:text="${v.modelo}"></h4>
+                <h3 class="card-text" th:text="${#numbers.formatCurrency(v.valor)}"></h3>
+                <p class="card-title" th:text="${v.marca.marca}"></p>
+                <div class="clearfix">
+                    <p class="card-text float-start text-muted" th:text="${v.anofabricacao}"></p>
+                    <p class="card-text float-end text-muted" th:text="${v.tipo}"></p>
+                </div>
+                <a th:href="@{/obj/(id=${v.id})}" class="btn btn-success btn-lg w-100">Detalhes</a>
+            </div>
+        </div>
+
+
+        <!-- Component Card de apresentação de veiculos por cor-->
+
+        <div th:fragment="cor" class="card col-12 col-md-4 text container" id="card" th:each="v : ${cv}">
+            <div class="image-container">
+                <img class="card-img-top w-100" th:attr="src=@{/images/}+${v.fotodestaque}+m.jpg, alt=${v.modelo}, title=${v.modelo}">
+            </div>
+            <div class="card-body">
+
+                <h4 class="card-title" th:text="${v.modelo}"></h4>
+                <h3 class="card-text" th:text="${#numbers.formatCurrency(v.valor)}"></h3>
+                <p class="card-title" th:text="${v.marca.marca}"></p>
+                <div class="clearfix">
+                    <p class="card-text float-start text-muted" th:text="${v.anofabricacao}"></p>
+                    <p class="card-text float-end text-muted" th:text="${v.tipo}"></p>
+                </div>
+                <a th:href="@{/obj/(id=${v.id})}" class="btn btn-success btn-lg w-100">Detalhes</a>
+            </div>
+        </div>
+
+
+        <!-- Component Card de apresentação de veiculos por Marca-->
+
+        <div th:fragment="marca" class="card col-12 col-md-4 text container" id="card" th:each="v : ${mv}">
+            <div class="image-container">
+                <img class="card-img-top w-100" th:attr="src=@{/images/}+${v.fotodestaque}+m.jpg, alt=${v.modelo}, title=${v.modelo}">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title" th:text="${v.modelo}"></h4>
+                <h3 class="card-text" th:text="${#numbers.formatCurrency(v.valor)}"></h3>
+                <p class="card-title" th:text="${v.marca.marca}"></p>
+                <div class="clearfix">
+                    <p class="card-text float-start text-muted" th:text="${v.anofabricacao}"></p>
+                    <p class="card-text float-end text-muted" th:text="${v.tipo}"></p>
+                </div>
+                <a th:href="@{/obj/(id=${v.id})}" class="btn btn-success btn-lg w-100">Detalhes</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Component sobre -->
+
+    <div th:fragment="sobre">
+        <h1>Por Que Horizon?</h1>
+        <div class="row-sobre">
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">História</h5>
+                        <p class="card-text">A Concessionária Horizon iniciou suas atividades em Janeiro de 2021 na cidade de Umuarama, numa época de muita turbulência na economia nacional, onde montar uma empresa era acima de tudo um desafio pessoal. Com o empenho de seus
+                            sócios e principalmente com a ajuda de Deus, os obstáculos foram sendo vencidos e a cada ano o balanço dizia que o momento era de acreditar e seguir em frente. Os objetivos e as ações sempre culminaram numa parceria inseparável,
+                            aliados ao respeito pelas leis e pelos clientes. Para nós um cliente nunca foi e jamais será um número.Essa prática sempre nos diferenciou de nossa concorrência.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Objetivos</h5>
+                        <p class="card-text">Empresa genuinamente nacional, a Horizon desde sua fundação, tem como filosofia e objetivo manter o alto nível na qualidade dos seus serviços, contando com uma rede de fornecedores e parceiros de alto nível, a fim de atender a
+                            demanda de seus clientes com segurança e qualidade, aplicando sempre a relação custo/benefício em tudo o que fazemos.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Visão</h5>
+                        <p class="card-text">Ser uma empresa focada nas necessidades dos clientes, com uma sólida cultura de trabalho em equipe e elevado comprometimento com a excelência dos serviços.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Component detalhes -->
+
+    <div th:fragment="detalhes" class="row text-center" id="detalhes">
+        <div class="col-12 col-md-8" id="detalhe-foto">
+            <div class="images-detalhes">
+                <img th:attr="src=@{/images/}+${obj.fotodestaque}+g.jpg, alt=${obj.modelo}, title=${obj.modelo}" class="w-100" align="center">
+            </div>
+        </div>
+        <br>
+        <div class="col-12 col-md-8 bord">
+            <h2>Detalhes:</h2>
+            <p th:text="'Ano de Fabricação: ' + ${obj.anofabricacao}"></p>
+            <p th:text="'Ano do Modelo: '+${obj.anomodelo}"></p>
+            <p th:text="'Cor: ' +${obj.cor.cor}"></p>
+            <p th:text="'Valor: ' + ${#numbers.formatCurrency(obj.valor)}"></p>
+            <h2 class="text-center">Descrição</h2>
+        </div>
+    </div>
+
+    <!-- Footer -->>
+    <div th:fragment="footer" class="content" id="footer">
+
+        <footer class="footer">
+            <div class="container py-3 py-sm-5">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-3">
+
+                        <h6>Links</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/main/n">Veiculos Novos</a></li>
+                            <li><a href="/main/s">Veiculos Seminovos</a></li>
+
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <h6>Informações</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="/sobre">Sobre nós</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <h6>Suporte</h6>
+                        <ul class="list-unstyled">
+                            <a href="mailto:suporte@horizon.com">suporte@horizon.com</a><br/> Telefone:
+                            <br />
+                            <a href="tel:3661681">36631681</a><br />
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <address>
+                
+                </address>
+                    </div>
+                </div>
+                <div class="rodape">
+                    <div class="col-12 col-sm-6 col-md-9">
+                        <ul class="list-inline">
+                            <li class="list-inline-item">&copy; 2021 UniAlfa, Inc.</li>
+                            <li class="list-inline-item">Todos Direitos Reservados.</li>
+
+                        </ul>
+                    </div>
+                </div>
+
+        </footer>
+        </div>
+
+</body>
